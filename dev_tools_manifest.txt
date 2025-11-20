@@ -1,0 +1,27 @@
+# Date: Thu Nov 20 07:16:00 UTC 2025
+# DevOps Development Machine - Installed Tools Manifest
+
+## CONTAINERIZATION
+Docker: 29.0.2
+Docker Compose: 2.40.3
+K3s: v1.33.5+k3s1
+go1.24.6
+Kubectl: 
+
+## LANGUAGES
+Git: 2.43.0
+Python: 3.12.3
+Go: go1.22.2
+Java (JDK): 17.0.16
+PSQL (PostgreSQL Client): 16.10
+
+## FRONTEND STACK (Node.js ecosystem)
+Node.js: v24.11.1
+NPM: 11.6.2
+NVM: 0.39.7
+Frontend Stack: Vue 3, Nuxt 3, Tailwind CSS (Installed via NPM)
+
+## FRONTEND PROJECT STACK (Installed via NPM in financial-website/)
+TypeScript: 
+Vue TSC: 
+
