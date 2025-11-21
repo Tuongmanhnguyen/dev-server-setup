@@ -1,9 +1,3 @@
-Here is the consolidated, master documentation for your Azure Development Infrastructure. It integrates the specifications for both VMs, the detailed "Bot-Proofing" implementation, and the standard development environment setup.
-
-You can commit this directly to your GitHub repo (`dev-server-setup`) as `INFRASTRUCTURE.md`.
-
----
-
 # Azure Development Infrastructure & Governance Bypass Documentation
 
 **Repository:** [https://github.com/Tuongmanhnguyen/dev-server-setup](https://github.com/Tuongmanhnguyen/dev-server-setup)
