@@ -16,18 +16,26 @@ This document details the tools, runtimes, and dependencies installed on this Ub
 sudo apt update && sudo apt install -y curl wget git build-essential ca-certificates software-properties-common
 
 # Add Docker GPG key and repository
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+
 sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL [https://download.docker.com/linux/ubuntu/gpg](https://download.docker.com/linux/ubuntu/gpg) -o /etc/apt/keyrings/docker.asc
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] [https://download.docker.com/linux/ubuntu](https://download.docker.com/linux/ubuntu) $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Post-install: Add user to docker group (requires logout/login)
 sudo usermod -aG docker $USER
 
 # Install k3s as a single-node cluster
-curl -sfL [https://get.k3s.io](https://get.k3s.io) | sh -
+curl -sfL https://get.k3s.io | sh -
 # Verification: sudo kubectl get nodes
 
 # Python (includes pip and virtual environment tools)
@@ -43,7 +51,7 @@ sudo apt install -y openjdk-17-jdk openjdk-17-jre
 sudo apt install -y postgresql-client
 
 # Install NVM
-curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh) | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Load NVM (run this after installation/login)
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
