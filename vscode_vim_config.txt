@@ -1,0 +1,41 @@
+# VS Code Vim Extension Configuration (Windows/DevOps Setup)
+
+## 1. Prerequisites
+1. Install VS Code.
+2. Install the "Vim" extension (vscodevim.vim).
+3. Install the "Remote - SSH" extension (for Azure/Linux VM work).
+
+## 2. The Configuration Logic
+This setup creates a "Hybrid" workflow perfect for Windows users:
+- Vim manages navigation (h/j/k/l), scrolling (Ctrl+D), and editing.
+- Windows/VS Code manages system commands (Copy, Paste, Find, Save).
+- System Clipboard is enabled so 'yy' copies to Windows clipboard.
+
+## 3. settings.json Configuration
+Open VS Code -> Ctrl + Shift + P -> "Open User Settings (JSON)"
+Add the following block to the JSON object:
+
+// -----------------------------------------------------------
+// VIM EXTENSION SETTINGS
+// -----------------------------------------------------------
+
+"vim.useSystemClipboard": true,  // Syncs Vim 'y'/'p' with Windows Ctrl+C/V
+
+"vim.handleKeys": {
+    // --- VIM NATIVE KEYS (Keep these for speed) ---
+    "<C-d>": true,    // Scroll down half-page (Faster than mouse)
+    "<C-u>": true,    // Scroll up half-page
+
+    // --- WINDOWS/VS CODE OVERRIDES (Let VS Code handle these) ---
+    "<C-s>": false,   // Ctrl+S: Save file
+    "<C-z>": false,   // Ctrl+Z: Undo (Safety net)
+    "<C-c>": false,   // Ctrl+C: Copy (Native Windows behavior)
+    "<C-v>": false,   // Ctrl+V: Paste (Native Windows behavior)
+    "<C-a>": false,   // Ctrl+A: Select All
+    "<C-f>": false,   // Ctrl+F: Normal Find (easier than Vim's / search sometimes)
+    "<C-p>": false,   // Ctrl+P: Go to File (Essential for large projects)
+    "<C-w>": false    // Ctrl+W: Close tab (Instead of Vim window switching)
+},
+
+// Optional: Fix visual block cursor visibility
+"vim.cursorStylePerMode.visual": "block-outline",
