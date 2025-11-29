@@ -37,5 +37,5 @@ Add the following block to the JSON object:
     "<C-w>": false    // Ctrl+W: Close tab (Instead of Vim window switching)
 },
 
-// Optional: Fix visual block cursor visibility
-"vim.cursorStylePerMode.visual": "block-outline",
+// Optional: Fix visual block cursor visibility ( Not a good idea)
+//"vim.cursorStylePerMode.visual": "block-outline", 
